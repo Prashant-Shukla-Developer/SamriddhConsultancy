@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samriddh Consultancy | Connect, Hire, Grow.</title>
+  <style>
+    :root {
+      --navy: #0F2942;
+      --navy-dark: #091B2E;
+      --teal: #0D9488;
+      --teal-light: #14B8A6;
+      --amber: #D97706;
+      --amber-light: #F59E0B;
+      --bg-light: #F4F7FA;
+      --card-bg: #FFFFFF;
+      --text-main: #1E293B;
+      --text-muted: #54667A;
+      --border: #DCE5EF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(9, 27, 46, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--teal);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+
+    .brand-text h1 {
+      font-size: 1.25rem;
+      letter-spacing: 0.03em;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.74rem;
+      color: var(--teal-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: #E2EAF4;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--teal-light);
+    }
+
+    .btn-cta-nav {
+      background: var(--teal);
+      color: #FFFFFF !important;
+      padding: 0.55rem 1.15rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn-cta-nav:hover {
+      background: var(--teal-light);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 65%, #123D59 100%);
+      color: #FFFFFF;
+      padding: 5rem 1.5rem;
+      border-bottom: 4px solid var(--amber);
+    }
+
+    .hero-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(13, 148, 136, 0.2);
+      border: 1px solid var(--teal-light);
+      color: var(--teal-light);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h2 {
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 1.15rem;
+    }
+
+    .hero h2 span {
+      color: var(--amber-light);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #CBD5E1;
+      margin-bottom: 2rem;
+      max-width: 580px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #FFFFFF;
+      padding: 0.85rem 1.65rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.2s;
+      font-size: 1rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #FFFFFF;
+      padding: 0.85rem 1.65rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1.5px solid var(--amber-light);
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(245, 158, 11, 0.15);
+    }
+
+    .pillars-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      padding: 1.85rem;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    }
+
+    .pillar-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pillar-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .pillar-row:first-child {
+      padding-top: 0;
+    }
+
+    .pillar-tag {
+      background: var(--teal);
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+      min-width: 82px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pillar-tag.amber {
+      background: var(--amber);
+    }
+
+    .pillar-row h4 {
+      color: #FFFFFF;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .pillar-row p {
+      color: #CBD5E1;
+      font-size: 0.88rem;
+      margin-bottom: 0;
+    }
+
+    section {
+      padding: 4.5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.25rem;
+    }
+
+    .section-header .eyebrow {
+      color: var(--teal);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-header h3 {
+      font-size: 2.1rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--navy);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 6px 18px rgba(15, 41, 66, 0.05);
+      transition: transform 0.2s, border-top-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-top-color: var(--teal);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(13, 148, 136, 0.12);
+      color: var(--teal);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .card h4 {
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 0.65rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .card ul li {
+      padding: 0.3rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: 800;
+    }
+
+    .portal-band {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .portal-box {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.25rem;
+    }
+
+    .portal-box.highlight {
+      background: var(--navy);
+      color: #FFFFFF;
+      border-color: var(--navy);
+    }
+
+    .portal-box h4 {
+      font-size: 1.45rem;
+      margin-bottom: 0.75rem;
+      color: var(--navy);
+    }
+
+    .portal-box.highlight h4 {
+      color: #FFFFFF;
+    }
+
+    .portal-box p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .portal-box.highlight p {
+      color: #CBD5E1;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15, 41, 66, 0.07);
+    }
+
+    .contact-info {
+      background: linear-gradient(160deg, var(--navy-dark), var(--navy));
+      padding: 2.5rem;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-info h3 {
+      font-size: 1.65rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-info p {
+      color: #CBD5E1;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .info-item {
+      margin-bottom: 1.35rem;
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--amber-light);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-item span, .info-item a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .contact-form {
+      padding: 2.5rem;
+    }
+
+    .contact-form h4 {
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.72rem 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+    }
+
+    footer {
+      background: var(--navy-dark);
+      color: #94A3B8;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.9rem;
+      border-top: 3px solid var(--teal);
+    }
+
+    footer strong {
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="#home" class="brand">
+        <svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="14" fill="#0F2942" stroke="#14B8A6" stroke-width="4"/>
+          <circle cx="35" cy="36" r="10" fill="#14B8A6"/>
+          <circle cx="65" cy="36" r="10" fill="#F59E0B"/>
+          <path d="M18 72C18 61 25 54 35 54C45 54 52 61 52 72" stroke="#14B8A6" stroke-width="7" stroke-linecap="round"/>
+          <path d="M48 72C48 61 55 54 65 54C75 54 82 61 82 72" stroke="#F59E0B" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="brand-text">
+          <h1>SAMRIDDH CONSULTANCY</h1>
+          <span>Connect, Hire, Grow.</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portals">Employers &amp; Talent</a></li>
+          <li><a href="#contact" class="btn-cta-nav">Get Started</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="badge">Recruitment &bull; HRMS &bull; Payroll Management</span>
+        <h2>Connect, Hire, <span>Grow.</span></h2>
+        <p>
+          Samriddh Consultancy empowers businesses with end-to-end talent acquisition, cloud-ready HRMS implementation, and 100% compliant payroll administration so your organization can scale effortlessly.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Partner With Us</a>
+          <a href="#services" class="btn-secondary">Explore HR Solutions</a>
+        </div>
+      </div>
+
+      <div class="pillars-card">
+        <div class="pillar-row">
+          <span class="pillar-tag">Connect</span>
+          <div>
+            <h4>Talent &amp; Workforce Network</h4>
+            <p>Bridging skilled professionals with verified industrial, corporate, and technical employers.</p>
+          </div>
+        </div>
+        <div class="pillar-row">
+          <span class="pillar-tag amber">Hire</span>
+          <div>
+            <h4>Fast, Screened Placements</h4>
+            <p>Structured candidate vetting for permanent, contractual, and bulk staffing mandates.</p>
+          </div>
+        </div>
+        <div class="pillar-row">
+          <span class="pillar-tag">Grow</span>
+          <div>
+            <h4>Automated HRMS &amp; Payroll</h4>
+            <p>Streamlined attendance, statutory compliance, and error-free salary disbursement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Our Core Solutions</span>
+        <h3>Complete Workforce &amp; HR Management</h3>
+        <p>Everything your organization needs to recruit top talent, digitize HR operations, and manage statutory payroll compliance.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">01</div>
+          <h4>Recruitment &amp; Staffing Agency</h4>
+          <p>Strategic hiring solutions tailored for manufacturing units, corporate offices, and growing enterprises.</p>
+          <ul>
+            <li>Permanent &amp; Executive Search</li>
+            <li>Contract &amp; Temporary Staffing</li>
+            <li>Industrial &amp; Technical Bulk Hiring</li>
+            <li>Pre-Screened Candidate Shortlisting</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">02</div>
+          <h4>HRMS Solutions &amp; Automation</h4>
+          <p>Centralize employee lifecycles with intuitive digital HR workflows and real-time workforce analytics.</p>
+          <ul>
+            <li>Digital Onboarding &amp; Employee Records</li>
+            <li>Biometric &amp; Geo-Attendance Tracking</li>
+            <li>Leave, Shift &amp; Overtime Management</li>
+            <li>Performance Appraisal Workflows</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">03</div>
+          <h4>Payroll &amp; Statutory Compliance</h4>
+          <p>Accurate, on-time monthly payroll processing backed by complete statutory filings and audit readiness.</p>
+          <ul>
+            <li>Automated Payslips &amp; Bank Payout Files</li>
+            <li>PF, ESIC, PT &amp; LWF Filings</li>
+            <li>TDS Calculation &amp; Form 16 Generation</li>
+            <li>Full &amp; Final Settlement Processing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portals" class="portal-band">
+    <div class="container">
+      <div class="dual-grid">
+        <div class="portal-box highlight">
+          <h4>For Employers &amp; HR Leaders</h4>
+          <p>Looking to close urgent vacancies, outsource monthly payroll, or deploy an HRMS platform? Request a customized proposal today.</p>
+          <a href="#contact" class="btn-primary">Submit Hiring / HR Inquiry</a>
+        </div>
+
+        <div class="portal-box">
+          <h4>For Job Seekers &amp; Professionals</h4>
+          <p>Explore career opportunities across engineering, administration, finance, IT, and operations with leading employers.</p>
+          <a href="#contact" class="btn-primary" style="background: var(--navy);">Register as a Candidate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div>
+            <h3>Let's Build Your Workforce</h3>
+            <p>Reach out to Samriddh Consultancy for hiring mandates, HRMS demos, payroll outsourcing, or career placement support.</p>
+
+            <div class="info-item">
+              <strong>Office Address</strong>
+              <span>GCB4, Gurudev Complex, Commercial Building, Silvassa 396230</span>
+            </div>
+
+            <div class="info-item">
+              <strong>Phone / WhatsApp</strong>
+              <a href="tel:+917877612167">+91 7877612167</a>
+            </div>
+
+            <div class="info-item">
+              <strong>Email Address</strong>
+              <a href="mailto:samriddhenterprises@gmail.com">samriddhenterprises@gmail.com</a>
+            </div>
+          </div>
+
+          <div style="font-size: 0.85rem; color: #94A3B8; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1rem;">
+            Samriddh Consultancy &mdash; Connect, Hire, Grow.
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h4>Send Us an Inquiry</h4>
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="276a341a-5601-4792-a2de-fe455d90e19d" />
+            <input type="hidden" name="subject" value="New Inquiry from Samriddh Consultancy Website" />
+            <input type="hidden" name="from_name" value="Samriddh Consultancy Website" />
+            <input type="checkbox" name="botcheck" style="display: none;" />
+
+            <div class="form-group">
+              <label for="name">Full Name / Company Name</label>
+              <input type="text" id="name" name="name" required placeholder="e.g., Priya Patel / Horizon Industries" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="e.g., priya@company.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required placeholder="e.g., +91 98XXXXXXXX" />
+            </div>
+
+            <div class="form-group">
+              <label for="service">Inquiry Type</label>
+              <select id="service" name="service">
+                <option value="Recruitment & Staffing Services">Recruitment &amp; Staffing Services</option>
+                <option value="HRMS Software Implementation">HRMS Software Implementation</option>
+                <option value="Payroll & Statutory Compliance">Payroll &amp; Statutory Compliance</option>
+                <option value="Job Seeker / Candidate Registration">Job Seeker / Candidate Registration</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message / Requirement Details</label>
+              <textarea id="message" name="message" rows="3" required placeholder="Tell us about your hiring needs, employee headcount, or job profile..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%;">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 <strong>Samriddh Consultancy</strong>. All Rights Reserved. | Connect, Hire, Grow.</p>
+  </footer>
+
+</body>
+</html>
